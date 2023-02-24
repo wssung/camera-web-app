@@ -10,7 +10,7 @@ forntCameraButton = document.querySelector("#front-camera-button");
 
 function cameraStart(){
     if (typeof currentStream !=='undefined'){
-        currentenStream.getTracks().array.forEach(track => {
+        currentenStream.getTracks().forEach(track => {
             track.stop();            
         }); 
     }
