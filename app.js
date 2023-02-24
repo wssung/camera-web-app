@@ -9,7 +9,6 @@ takePhotoButton = document.querySelector("#take-photo-button");
 frontCameraButton = document.querySelector("#front-camera-button");
 
 function cameraStart() {
-    // Stop the video streaming before access the media device
     if (typeof currentStream !== 'undefined') {
         currentStream.getTracks().forEach(track => {
             track.stop();         
