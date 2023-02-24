@@ -1,5 +1,5 @@
 var forntCamera = false;
-var currentenStream;
+var currentStream;
 
 const
 cameraView = document.querySelector("#camera-view"),
@@ -8,9 +8,9 @@ photoDisplay = document.querySelector("#photo-display"),
 takePhotoButton = document.querySelector("#take-photo-button");
 frontCameraButton = document.querySelector("#front-camera-button");
 
-function cameraStart(){
+function cameraStart() {
     if (typeof currentStream !=='undefined'){
-        currentenStream.getTracks().forEach(track => {
+        currentStream.getTracks().forEach(track => {
             track.stop();            
         }); 
     }
