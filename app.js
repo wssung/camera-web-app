@@ -1,4 +1,4 @@
-var forntCamera = false;
+var frontCamera = false;
 var currentStream;
 
 const
