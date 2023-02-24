@@ -9,23 +9,24 @@ takePhotoButton = document.querySelector("#take-photo-button");
 frontCameraButton = document.querySelector("#front-camera-button");
 
 function cameraStart() {
-    if (typeof currentStream !=='undefined'){
+    // Stop the video streaming before access the media device
+    if (typeof currentStream !== 'undefined') {
         currentStream.getTracks().forEach(track => {
-            track.stop();            
+            track.stop();         
         }); 
     }
 
     var constraints = { video: { facingMode: (frontCamera? "user" : "environment") }, audio: false };
 
     navigator.mediaDevices
-    .getUserMedia(constraints)
-    .then(function(stream){
-        currentStream = stream;
-        cameraDevice.srcObject = stream;
-    })
-    .catch(function(error){
-        console.error("Error happened.", error);
-    })
+        .getUserMedia(constraints)
+        .then(function(stream) {
+            currentStream = stream;
+            cameraDevice.srcObject = stream;
+        })
+        .catch(function(error) {
+            console.error("Error happened.", error);
+        });
 }
 
 takePhotoButton.onclick = function() {
